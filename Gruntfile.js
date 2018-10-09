@@ -11,11 +11,11 @@ module.exports = function (grunt) {
             production: {
                 NODE_ENV: 'production'
             }
-        }
+        },
       
         nodemon: {
             dev: { script: 'index.js' }
-        }
+        },
 
         jshint: {
             options: {
@@ -23,31 +23,10 @@ module.exports = function (grunt) {
                 esversion: 6
             },
             all: ['Grunfile.js', 'config/*.js']
-        },
+        }
 
 
     });
-
-    grunt.loadNpmTasks('grunt-env');
-
-    grunt.registerTask('default', [
-        'env:dev',
-    ]);
-    grunt.registerTask('production', [
-        'env:production'
-    ]);
-
-    grunt.loadNpmTasks('grunt-contrib-nodemon');
-    grunt.loadNpmTasks('grunt-env');
-
-    grunt.registerTask('default', [
-        'env:dev',
-        'nodemon'
-    ]);
-    grunt.registerTask('production', [
-        'env:production',
-        'nodemon'
-    ]);
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-nodemon');
