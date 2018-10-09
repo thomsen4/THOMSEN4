@@ -1,0 +1,23 @@
+{
+  "name": "busadm810-thomsen4",
+  "version": "1.0.0",
+  "description": "BUSADM810 Fall18 Arne Thomsen",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thomsen4/THOMSEN4.git"
+  },
+  "author": "Arne Thomsen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thomsen4/THOMSEN4/issues"
+  },
+  "homepage": "https://github.com/thomsen4/THOMSEN4#readme"
+}
