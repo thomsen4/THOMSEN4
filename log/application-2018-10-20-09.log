@@ -1,0 +1,40 @@
+{"level":"info","message":"Starting application"}
+{"level":"info","message":"HTTP Server listening on port: %d, in %s mode"}
+{"level":"info","message":"Starting application"}
+{"level":"info","message":"HTTP Server listening on port: %d, in %s mode"}
+{"level":"info","message":"Request from ::1"}
+{"level":"error","message":"File not found: %s"}
+{"level":"info","message":"Request from ::1"}
+{"level":"info","message":"Get user %s"}
+{"level":"info","message":"Request from ::1"}
+{"level":"error","message":"File not found: %s"}
+{"level":"info","message":"Starting application"}
+{"level":"info","message":"HTTP Server listening on port: %d, in %s mode"}
+{"level":"info","message":"Starting application"}
+{"level":"info","message":"HTTP Server listening on port: %d, in %s mode"}
+{"level":"info","message":"Starting application"}
+{"level":"info","message":"HTTP Server listening on port: %d, in %s mode"}
+{"level":"info","message":"Starting application"}
+{"level":"info","message":"HTTP Server listening on port: %d, in %s mode"}
+{"level":"info","message":"Starting application"}
+{"level":"info","message":"HTTP Server listening on port: %d, in %s mode"}
+{"level":"info","message":"Starting application"}
+{"level":"info","message":"HTTP Server listening on port: %d, in %s mode"}
+{"level":"error","message":"File not found: %s"}
+{"level":"info","message":"Starting application"}
+{"level":"info","message":"HTTP Server listening on port: %d, in %s mode"}
+{"level":"error","message":"File not found: %s"}
+{"level":"info","message":"Starting application"}
+{"level":"info","message":"HTTP Server listening on port: %d, in %s mode"}
+{"level":"error","message":"File not found: %s"}
+{"level":"info","message":"Starting application"}
+{"level":"info","message":"HTTP Server listening on port: %d, in %s mode"}
+{"level":"error","message":"File not found: %s"}
+{"level":"info","message":"Starting application"}
+{"level":"info","message":"HTTP Server listening on port: %d, in %s mode"}
+{"level":"info","message":"Starting application"}
+{"level":"info","message":"HTTP Server listening on port: %d, in %s mode"}
+{"level":"info","message":"Delete user %s"}
+{"level":"info","message":"Update password for user %s"}
+{"level":"info","message":"Update user"}
+{"level":"info","message":"Create new user"}
