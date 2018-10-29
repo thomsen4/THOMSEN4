@@ -26,7 +26,6 @@ module.exports = function (app, config) {
 
     router.post('/users', asyncHandler(async (req, res) => {
         logger.log('info', 'Creating user');
-        console.log(req.body);
         var user = new User(req.body);
         const result = await user.save()
         res.status(201).json(result);
