@@ -34,7 +34,7 @@ module.exports = function (app, config) {
   app.use(express.static(config.root + '/public'));
 
   require('../app/models/todos');
-  require('../app/controllers/todos');
+  require('../app/controllers/todos')(app,config);
 
   app.use(function (req, res) {
     res.type('text/plan');

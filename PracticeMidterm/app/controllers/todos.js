@@ -5,8 +5,6 @@ var express = require('express'),
     Todos = mongoose.model('Todos'),
     asyncHandler = require('express-async-handler');
 
-    console.log(config);
-
 module.exports = function (app, config) {
     app.use('/api', router);
     router.get('/todos', asyncHandler(async (req, res) => {
@@ -27,7 +25,7 @@ module.exports = function (app, config) {
 
     router.post('/todos', asyncHandler(async (req, res) => {
         logger.log('info', 'Creating Todo');
-        var todo = new Todo(req.body);
+        var todo = new Todos(req.body);
         const result = await todo.save()
         res.status(201).json(result);
     }));
