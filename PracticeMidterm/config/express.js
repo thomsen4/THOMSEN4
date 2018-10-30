@@ -4,8 +4,6 @@ var logger = require('./logger');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var bluebird = require('bluebird');
-var glob = require('glob');
-
 
 module.exports = function (app, config) {
 
@@ -17,20 +15,17 @@ module.exports = function (app, config) {
     throw new Error('unable to connect to database at ' + config.db);
   });
 
+  app.use(morgan('dev'));
 
-  if (process.env.NODE_ENV !== 'test') {
-    app.use(morgan('dev'));
-
-    mongoose.set('debug', true);
-    mongoose.connection.once('open', function callback() {
-      logger.log('info', 'Mongoose connected to the database');
-    });
-
-    app.use(function (req, res, next) {
-      logger.log('Request from ' + req.connection.remoteAddress, 'info');
-      next();
-    });
-  }
+  mongoose.set('debug', true);
+  mongoose.connection.once('open', function callback() {
+    logger.log('info', 'Mongoose connected to the database');
+  });
+ 
+  app.use(function (req, res, next) {
+    logger.log('info', 'Request from ' + req.connection.remoteAddress, 'info');
+    next();
+  });
 
   app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -38,8 +33,8 @@ module.exports = function (app, config) {
 
   app.use(express.static(config.root + '/public'));
 
-  require('../controllers/todos');
-  require('../users/todos');
+  require('../app/models/todos');
+  require('../app/controllers/todos');
 
   app.use(function (req, res) {
     res.type('text/plan');
