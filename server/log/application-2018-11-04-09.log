@@ -1,0 +1,56 @@
+{"level":"info","message":"Loading Mongoose functionality"}
+{"level":"info","message":"Starting application"}
+{"level":"info","message":"HTTP Server listening on port: %d, in %s mode"}
+{"level":"info","message":"Mongoose connected to the database"}
+{"level":"info","message":"Loading Mongoose functionality"}
+{"level":"info","message":"Starting application"}
+{"level":"info","message":"HTTP Server listening on port: %d, in %s mode"}
+{"level":"info","message":"Mongoose connected to the database"}
+{"level":"info","message":"Loading Mongoose functionality"}
+{"level":"info","message":"Starting application"}
+{"level":"info","message":"HTTP Server listening on port: %d, in %s mode"}
+{"level":"info","message":"Mongoose connected to the database"}
+{"level":"info","message":"Loading Mongoose functionality"}
+{"level":"info","message":"Starting application"}
+{"level":"info","message":"HTTP Server listening on port: %d, in %s mode"}
+{"level":"info","message":"Mongoose connected to the database"}
+{"level":"info","message":"Get all users"}
+{"level":"info","message":"Loading Mongoose functionality"}
+{"level":"info","message":"Starting application"}
+{"level":"info","message":"HTTP Server listening on port: %d, in %s mode"}
+{"level":"info","message":"Mongoose connected to the database"}
+{"level":"info","message":"Creating help ticket"}
+{"level":"info","message":"Loading Mongoose functionality"}
+{"level":"info","message":"Starting application"}
+{"level":"info","message":"HTTP Server listening on port: %d, in %s mode"}
+{"level":"info","message":"Mongoose connected to the database"}
+{"level":"info","message":"Creating help ticket"}
+{"level":"info","message":"Get all help tickets"}
+{"level":"info","message":"Loading Mongoose functionality"}
+{"level":"info","message":"Starting application"}
+{"level":"info","message":"HTTP Server listening on port: %d, in %s mode"}
+{"level":"info","message":"Mongoose connected to the database"}
+{"level":"info","message":"Get all help tickets"}
+{"level":"info","message":"Get all help tickets"}
+{"level":"info","message":"Get all help tickets"}
+{"level":"info","message":"Get all help tickets"}
+{"level":"info","message":"Get help ticket %s"}
+{"level":"error","message":"File not found: %s"}
+{"level":"info","message":"Updating helpTickets"}
+{"level":"info","message":"Get all help tickets"}
+{"level":"info","message":"Creating help ticket content"}
+{"level":"info","message":"Creating help ticket content"}
+{"level":"info","message":"Creating help ticket content"}
+{"level":"info","message":"Creating help ticket"}
+{"level":"info","message":"Creating help ticket content"}
+{"level":"info","message":"Get all help ticket contents"}
+{"level":"info","message":"Get help ticket content for %s"}
+{"level":"info","message":"Get help ticket content for help ticket %s"}
+{"level":"info","message":"Updating help ticket content"}
+{"level":"info","message":"Get all help ticket contents"}
+{"level":"info","message":"Deleting help ticket content %s"}
+{"level":"info","message":"Get help ticket content for %s"}
+{"level":"info","message":"Get all help ticket contents"}
+{"level":"error","message":"File not found: %s"}
+{"level":"info","message":"Deleting help ticket %s"}
+{"level":"info","message":"Get all help ticket contents"}
