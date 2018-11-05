@@ -27,7 +27,7 @@ module.exports = function (app, config) {
     });
 
     app.use(function (req, res, next) {
-      logger.log('Request from ' + req.connection.remoteAddress, 'info');
+      logger.log('info', 'Request from ' + req.connection.remoteAddress);
       next();
     });
   }
