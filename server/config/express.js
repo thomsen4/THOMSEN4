@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var bluebird = require('bluebird');
 var glob = require('glob');
-
+var cors = require('cors');
 
 module.exports = function (app, config) {
 
@@ -17,6 +17,7 @@ module.exports = function (app, config) {
     throw new Error('unable to connect to database at ' + config.db);
   });
 
+  app.use(cors({origin: 'http://localhost:9000'}));
 
   if (process.env.NODE_ENV !== 'test') {
     app.use(morgan('dev'));
