@@ -17,7 +17,7 @@ module.exports = function (app, config) {
     throw new Error('unable to connect to database at ' + config.db);
   });
 
-  app.use(cors({origin: 'http://localhost:9000'}));
+  app.use(cors({ origin: 'http://localhost:9000' }));
 
   if (process.env.NODE_ENV !== 'test') {
     app.use(morgan('dev'));
@@ -58,10 +58,14 @@ module.exports = function (app, config) {
   });
 
   app.use(function (err, req, res, next) {
-    console.error(err.stack);
+    console.log(err)
+    if (process.env.NODE_ENV !== 'test') logger.log(err.stack, 'error');
     res.type('text/plan');
-    res.status(500);
-    res.send('500 Sever Error');
+    if (err.status) {
+      res.status(err.status).send(err.message);
+    } else {
+      res.status(500).send('500 Sever Error');
+    }
   });
 
   logger.log('info', "Starting application");

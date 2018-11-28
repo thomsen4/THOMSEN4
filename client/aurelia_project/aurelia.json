@@ -57,6 +57,11 @@
             "main": "runtime"
           },
           {
+            "name": "aurelia-auth",
+            "path": "../node_modules/aurelia-auth/dist/amd",
+            "main": "aurelia-auth"
+          },
+          {
             "name": "aurelia-fetch-client",
             "path": "../node_modules/aurelia-fetch-client/dist/amd",
             "main": "aurelia-fetch-client"
