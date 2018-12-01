@@ -13,6 +13,10 @@ export class NavBar {
         this.password = '';
     }
 
+    bind() {
+        this.isAuthenticated = this.auth.isAuthenticated();
+    }
+
     attached() {
         $('.navbar-nav a').on('click', function () {
             $('.navbar-nav').find('li.active').removeClass('active');
@@ -36,9 +40,12 @@ export class NavBar {
             });
     };
 
-
     logout() {
-        this.authenticated = false;
-        this.router.navigate('landing');
-    }
+        console.log('Test' + this.userObj + ' ???');
+        if (this.userObj) this.auth.logout(this.userObj.email);
+        sessionStorage.removeItem('user');
+        this.isAuthenticated = this.auth.isAuthenticated();
+        this.auth.logout();
+    };
+
 }
