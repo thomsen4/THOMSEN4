@@ -19,7 +19,7 @@ module.exports = function (app, config) {
         query
             .sort(req.query.order)
             .populate({ path: 'personID', model: 'User', select: 'lastName firstName' })
-            .populate({ path: 'owmerID', model: 'User', select: 'lastName firstName' });
+            .populate({ path: 'ownerID', model: 'User', select: 'lastName firstName' });
         if (req.query.status) {
             if (req.query.status[0] == '-') {
                 query.where('status').ne(req.query.status.substring(1));
@@ -41,16 +41,32 @@ module.exports = function (app, config) {
 
     router.post('/helpTickets', requireAuth, asyncHandler(async (req, res) => {
         logger.log('info', 'Creating help ticket');
-        var helpTicket = new HelpTicket(req.body);
-        const result = await helpTicket.save()
-        res.status(201).json(result);
+        var helpTicket = new HelpTicket(req.body.helpTicket);
+        await helpTicket.save()
+        then(result => {
+            req.body.content.helpTicketId = result._id;
+            var helpTicketContent = new helpTicketContent(req.body.content);
+            helpTicket.Content.save()
+            then(content => {
+                res.status(201).json(result);
+            })
+        })
     }));
 
     router.put('/helpTickets', requireAuth, asyncHandler(async (req, res) => {
         logger.log('info', 'Updating helpTickets');
-        await HelpTicket.findOneAndUpdate({ _id: req.body._id }, req.body, { new: true })
+        await HelpTicket.findOneAndUpdate({ _id: req.body.helpTicket._id }, req.body.helpTicket, { new: true })
             .then(result => {
-                res.status(200).json(result);
+                if (req.body.content) {
+                    req.body.content.helpTicketId = result._id;
+                    var helpTicketContent = new helpTicketContent(req.body.content);
+                    helpTicket.content.save()
+                        .then(content => {
+                            res.status(201).json(result)
+                        })
+                } else {
+                    res.status(200).json(result)
+                }
             })
     }));
 
@@ -107,5 +123,12 @@ module.exports = function (app, config) {
             .then(result => {
                 res.status(200).json(result);
             })
+    }));
+
+    router.get('/helpTickets/user/:id', requireAuth, asyncHandler(async (req, res) => {
+        logger.log('info', 'Get all help tickets for user %s', req.params.id);
+        await HelpTickets.find({ personID: req.params.id }).then(result => {
+            res.status(200).json(result);
+        })
     }));
 };
