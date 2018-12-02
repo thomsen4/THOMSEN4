@@ -16,7 +16,7 @@
                     <label for="content">Description</label>
                     <textarea value.bind="helpTicketContent.content" class="form-control" rows='8'></textarea>
                 </div>
-                <div class="card" repeat.for="content of helpTickets.helpTicketsContentArray">
+                <div class="card" show.bind="helpTicket._id" repeat.for="content of helpTickets.helpTicketsContentArray">
                     <div class="card-body">
                         <div class="row" style="padding:3px;">
                             <div class="col-3">

@@ -44,7 +44,7 @@ export class HelpTickets {
     async editHelpTicket(helpTicket) {
         this.helpTicket = helpTicket;
         this.helpTicketContent = {
-            personId: this.userObj._id,
+            personID: this.userObj._id,
             content: ""
         };
         await this.helpTickets.getHelpTicketsContents(helpTicket._id)

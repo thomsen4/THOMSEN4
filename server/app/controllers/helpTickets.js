@@ -99,7 +99,10 @@ module.exports = function (app, config) {
 
     router.get('/helpTicketContent/helpTicket/:id', requireAuth, asyncHandler(async (req, res) => {
         logger.log('info', 'Get help ticket content for help ticket %s', req.params.id);
-        await HelpTicketContent.find({ helpTicketID: req.params.id }).then(result => {
+        let query = HelpTicketContent.find();
+        query
+            .populate({ path: 'personID', model: 'User', select: 'lastName firstName' })
+        await query.find({ helpTicketID: req.params.id }).then(result => {
             res.status(200).json(result);
         })
     }));
