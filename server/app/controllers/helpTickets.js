@@ -43,32 +43,34 @@ module.exports = function (app, config) {
         logger.log('info', 'Creating help ticket');
         var helpTicket = new HelpTicket(req.body.helpTicket);
         await helpTicket.save()
-        then(result => {
-            req.body.content.helpTicketId = result._id;
-            var helpTicketContent = new helpTicketContent(req.body.content);
-            helpTicket.Content.save()
-            then(content => {
-                res.status(201).json(result);
+            .then(result => {
+                req.body.content.helpTicketID = result._id;
+                var helpTicketContent = new HelpTicketContent(req.body.content);
+                helpTicketContent.save()
+                    .then(content => {
+                        res.status(201).json(result);
+                    })
             })
-        })
     }));
 
-    router.put('/helpTickets', requireAuth, asyncHandler(async (req, res) => {
-        logger.log('info', 'Updating helpTickets');
+    router.put('/helpTickets', asyncHandler(async (req, res) => {
+        logger.log('info', 'Updating HelpTicket');
+        console.log(req.body)
         await HelpTicket.findOneAndUpdate({ _id: req.body.helpTicket._id }, req.body.helpTicket, { new: true })
             .then(result => {
                 if (req.body.content) {
-                    req.body.content.helpTicketId = result._id;
-                    var helpTicketContent = new helpTicketContent(req.body.content);
-                    helpTicket.content.save()
+                    req.body.content.helpTicketID = result._id;
+                    var helpTicketContent = new HelpTicketContent(req.body.content);
+                    helpTicketContent.save()
                         .then(content => {
-                            res.status(201).json(result)
+                            res.status(201).json(result);
                         })
                 } else {
-                    res.status(200).json(result)
+                    res.status(200).json(result);
                 }
             })
     }));
+
 
     router.delete('/helpTickets/:id', requireAuth, asyncHandler(async (req, res) => {
         logger.log('info', 'Deleting help ticket %s', req.params.id);

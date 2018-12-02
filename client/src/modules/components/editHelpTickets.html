@@ -9,26 +9,25 @@
                 </div>
                 <div class="form-group" style="margin-top:20px;">
                     <label for="title">Title</label>
-                    <input type="text" readonly bind='helpTicket._id' class="form-control" value.bind="helpTicket.title"
-                        id="title" placeholder="First name">
+                    <input type="text" readonly.bind='helpTicket._id' class="form-control" value.bind="helpTicket.title"
+                        id="title">
                 </div>
                 <div class="form-group" style="margin-top:20px;">
                     <label for="content">Description</label>
-                    <textarea value.bind="helpTicketConent.content" class="form-control" rows='8'></textarea>
+                    <textarea value.bind="helpTicketContent.content" class="form-control" rows='8'></textarea>
                 </div>
                 <div class="card" repeat.for="content of helpTickets.helpTicketsContentArray">
                     <div class="card-body">
                         <div class="row" style="padding:3px;">
                             <div class="col-3">
                                 <span innerhtml.bind="content.dateCreated | formatDate"></span><br />
-                                ${content.personId.firstName} ${content.personId.lastName}
+                                ${content.personID.firstName} ${content.personID.lastName}
                             </div>
                             <div class="col-9" style="border-left-style: solid; border-left-width: 1px;">
                                 ${content.content}
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

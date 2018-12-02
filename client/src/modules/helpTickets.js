@@ -7,8 +7,8 @@ import { HelpTicket } from '../resources/data/helpTickets';
 export class HelpTickets {
     constructor(router, helpTickets) {
         this.helpTickets = helpTickets;
-        this.showTableEditForm = false;
-        this.userObj = JSON.parse(sessionStorage.getItem(userObj));
+        this.showHelpTicketEditForm = false;
+        this.userObj = JSON.parse(sessionStorage.getItem('userObj'));
     }
 
     async activate() {
@@ -20,35 +20,34 @@ export class HelpTickets {
     }
 
 
-    async getHelpTickets(userObj) {
-        await this.helpTickets.getHelpTickets(userObj);
+    async getHelpTickets() {
+        await this.helpTickets.getHelpTickets();
     }
 
 
     newHelpTicket() {
         this.helpTicket = {
             title: "",
+            status: "new",
             personID: this.userObj._id,
-            ownerID: 'InitialAssignment',
-            role: "user",
-            status: "new"
+            ownerID: "a1a1a1a1a1a1a1a1a1a1a1a1"
         };
 
         this.helpTicketContent = {
             personID: this.userObj._id,
-            content: ''
+            content: '',
         };
 
         this.showEditForm();
     }
 
-    editHelpTicket(helpTicket) {
+    async editHelpTicket(helpTicket) {
         this.helpTicket = helpTicket;
         this.helpTicketContent = {
-            personID: this.userObj._id,
-            content: ''
+            personId: this.userObj._id,
+            content: ""
         };
-        await thisHelpTickets.getHelpTicketContents(helpTicket._id)
+        await this.helpTickets.getHelpTicketsContents(helpTicket._id)
         this.showEditForm();
     }
 
@@ -57,12 +56,11 @@ export class HelpTickets {
         this.router.navigate('home');
     }
 
-
     async save() {
         if (this.helpTicket && this.helpTicket.title && this.helpTicketContent && this.helpTicketContent.content) {
             if (this.userObj.role !== 'user') {
-                this.helpTicket.ownerID = this.userObj._id
-            };
+                this.helpTicket.ownerId = this.userObj._id;
+            }
             let helpTicket = { helpTicket: this.helpTicket, content: this.helpTicketContent }
             await this.helpTickets.saveHelpTicket(helpTicket);
             await this.getHelpTickets();
@@ -70,14 +68,13 @@ export class HelpTickets {
         }
     }
 
+
     back() {
         this.showHelpTicketEditForm = false;
     }
 
-    openEditForm() {
+    showEditForm() {
         this.showHelpTicketEditForm = true;
         setTimeout(() => { $("#title").focus(); }, 500);
     }
-}
-
 }

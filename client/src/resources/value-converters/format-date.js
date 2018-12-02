@@ -1,6 +1,6 @@
 export class FormatDateValueConverter {
     toView(value) {
-        let myDate = newDate(value);
-        return myDate.toLocaleDateString() + "<br/>" + myDate.toLocalTimeString();
+        let myDate = new Date(value);
+        return myDate.toLocaleDateString() + "<br/>" + myDate.toLocaleTimeString();
     }
 }
