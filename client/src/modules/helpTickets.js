@@ -21,7 +21,7 @@ export class HelpTickets {
 
 
     async getHelpTickets() {
-        await this.helpTickets.getHelpTickets();
+        await this.helpTickets.getHelpTickets(this.userObj);
     }
 
 
@@ -59,11 +59,11 @@ export class HelpTickets {
     async save() {
         if (this.helpTicket && this.helpTicket.title && this.helpTicketContent && this.helpTicketContent.content) {
             if (this.userObj.role !== 'user') {
-                this.helpTicket.ownerId = this.userObj._id;
+                this.helpTicket.ownerID = this.userObj._id;
             }
             let helpTicket = { helpTicket: this.helpTicket, content: this.helpTicketContent }
             await this.helpTickets.saveHelpTicket(helpTicket);
-            await this.getHelpTickets();
+            await this.getHelpTickets(this.userObj);
             this.back();
         }
     }

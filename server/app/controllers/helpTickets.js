@@ -132,7 +132,12 @@ module.exports = function (app, config) {
 
     router.get('/helpTickets/user/:id', requireAuth, asyncHandler(async (req, res) => {
         logger.log('info', 'Get all help tickets for user %s', req.params.id);
-        await HelpTickets.find({ personID: req.params.id }).then(result => {
+        let query = HelpTicket.find();
+        query
+            .sort(req.query.order)
+            .populate({ path: 'personID', model: 'User', select: 'lastName firstName' })
+            .populate({ path: 'ownerID', model: 'User', select: 'lastName firstName' });
+        await query.find({ personID: req.params.id }).then(result => {
             res.status(200).json(result);
         })
     }));

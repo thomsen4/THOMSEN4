@@ -42,10 +42,9 @@ export class NavBar {
 
     logout() {
         console.log('Test' + this.userObj + ' ???');
-        if (this.userObj) this.auth.logout(this.userObj.email);
         sessionStorage.removeItem('user');
-        this.isAuthenticated = this.auth.isAuthenticated();
         this.auth.logout();
+        this.isAuthenticated = this.auth.isAuthenticated();
     };
 
 }
