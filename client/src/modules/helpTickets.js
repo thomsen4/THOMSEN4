@@ -87,6 +87,14 @@ export class HelpTickets {
         }
     }
 
+    async delete() {
+        if (this.helpTicket) {
+            await this.helpTickets.delete(this.helpTicket);
+            await this.getHelpTickets();
+            this.back();
+        }
+    }
+
     showEditForm() {
         this.showHelpTicketEditForm = true;
         setTimeout(() => { $("#title").focus(); }, 500);
