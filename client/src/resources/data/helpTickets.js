@@ -60,4 +60,7 @@ export class HelpTicket {
         setTimeout(() => { $("#firstName").focus(); }, 500);
     }
 
+    async uploadFile(files, id) {
+        await this.data.uploadFiles(files, this.HELPTICKETCONTENT_SERVICE + "/upload/" + id);
+    }
 };

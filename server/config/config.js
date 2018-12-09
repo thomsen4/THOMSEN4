@@ -9,6 +9,7 @@ var config = {
         port: 5000,
         db: 'mongodb://127.0.0.1/helpMe-dev',
         secret: 'DasIstWirklichEinTollerKurs',
+        uploads: './public/uploadedFiles'
     },
 
     test: {
@@ -17,6 +18,7 @@ var config = {
         port: 4000,
         db: 'mongodb://127.0.0.1/helpMe-test',
         secret: 'Testgeheimnis',
+        uploads: './public/uploadedFiles'
     },
 
     production: {
@@ -24,7 +26,8 @@ var config = {
         app: { name: 'THOMSEN4' },
         port: 80,
         db: 'mongodb://127.0.0.1/helpMe',
-        secret: 'JetztIstsSoweit'
+        secret: 'JetztIstsSoweit',
+        uploads: './public/uploadedFiles'
     }
 };
 

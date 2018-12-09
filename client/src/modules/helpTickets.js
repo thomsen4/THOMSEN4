@@ -62,7 +62,8 @@ export class HelpTickets {
                 this.helpTicket.ownerID = this.userObj._id;
             }
             let helpTicket = { helpTicket: this.helpTicket, content: this.helpTicketContent }
-            await this.helpTickets.saveHelpTicket(helpTicket);
+            let serverResponse = await this.helpTickets.saveHelpTicket(helpTicket);
+            if (this.filesToUpload && this.filesToUpload.length > 0) this.helpTickets.uploadFile(this.filesToUpload, serverResponse.contentID);
             await this.getHelpTickets(this.userObj);
             this.back();
         }
@@ -71,6 +72,19 @@ export class HelpTickets {
 
     back() {
         this.showHelpTicketEditForm = false;
+        this.filesToUpload = new Array();
+        this.files = new Array();
+    }
+
+    changeFiles() {
+        this.filesToUpload = this.filesToUpload ? this.filesToUpload : new Array();
+        for (var i = 0; i < this.files.length; i++) {
+            let addFile = true;
+            this.filesToUpload.forEach(item => {
+                if (item.name === this.files[i].name) addFile = false;
+            })
+            if (addFile) this.filesToUpload.push(this.files[i]);
+        }
     }
 
     showEditForm() {
