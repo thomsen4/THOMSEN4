@@ -12,6 +12,14 @@
                     <input type="text" readonly.bind='helpTicket._id' class="form-control" value.bind="helpTicket.title"
                         id="title">
                 </div>
+                <div show.bind="userObj.role !== 'user'" class="form-group" style="margin-top:20px;">
+                    <label for="status">Status</label>
+                    <select class="form-control" value.bind="helpTicket.status">
+                        <option value="new">New</option>
+                        <option value="inProcess">In Process</option>
+                        <option value="closed">Closed</option>
+                    </select>
+                </div>
                 <div class="form-group" style="margin-top:20px;">
                     <label for="content">Description</label>
                     <textarea value.bind="helpTicketContent.content" class="form-control" rows='8'></textarea>

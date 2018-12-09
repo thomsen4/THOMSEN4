@@ -16,7 +16,7 @@ module.exports = function (app, config) {
     router.get('/users', requireAuth, asyncHandler(async (req, res) => {
         logger.log('info', 'Get all users');
         let query = User.find();
-        query.sort(req.query.order);
+        query.sort(req.query.order)
         await query.exec().then(result => {
             res.status(200).json(result);
         })
