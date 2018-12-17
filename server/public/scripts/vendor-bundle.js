@@ -1,5 +1,5 @@
 /* @preserve
- * The MIT License (MIT)
+ * T MIT License (MIT)
  * 
  * Copyright (c) 2013-2018 Petka Antonov
  * 
