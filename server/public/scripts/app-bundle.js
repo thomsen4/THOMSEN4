@@ -1,4 +1,4 @@
-define('app',["exports", "aurelia-auth"], function (_exports, _aureliaAuth) {
+define('ap',["exports", "aurelia-auth"], function (_exports, _aureliaAuth) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
